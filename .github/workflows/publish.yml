@@ -1,4 +1,11 @@
 # .github/workflows/publish.yml の例
+name: publish-to-ukpypi
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
