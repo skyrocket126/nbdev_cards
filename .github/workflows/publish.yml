@@ -1,5 +1,5 @@
 # .github/workflows/publish.yml の例
-name: publish-to-ukpypi
+name: Publish-to-ukpypi
 
 on:
   push:
