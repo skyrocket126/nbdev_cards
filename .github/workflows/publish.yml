@@ -25,6 +25,8 @@ jobs:
             User kawahara
             IdentityFile ~/.ssh/id_rsa_proxy1
             IdentitiesOnly yes
+            HostkeyAlgorithms +ssh-rsa
+            PubkeyAcceptedAlgorithms +ssh-rsa
 
           Host repog221
             HostName repog221.ukw.jp
