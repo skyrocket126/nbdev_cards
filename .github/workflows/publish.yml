@@ -1,0 +1,38 @@
+# .github/workflows/publish.yml の例
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup SSH Keys
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PROXY1_SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa_proxy1
+          echo "${{ secrets.REPOG221_SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519_repog221
+          chmod 600 ~/.ssh/id_rsa_proxy1 ~/.ssh/id_ed25519_repog221
+          cat <<EOF > ~/.ssh/config
+          Host proxy1
+            HostName proxy1.ukw.jp
+            User kawahara
+            IdentityFile ~/.ssh/id_rsa_proxy1
+            IdentitiesOnly yes
+
+          Host repog221
+            HostName repog221.ukw.jp
+            User universal
+            IdentityFile ~/.ssh/id_ed25519_repog221
+            ProxyJump proxy1
+            IdentitiesOnly yes
+          EOF
+          chmod 600 ~/.ssh/config
+
+      - name: Build Package
+        run: |
+          python -m pip install build
+          python -m build
+
+      - name: Deploy via rsync
+        run: |
+          rsync -avz dist/nbdev_cards-*.tar.gz repog221:/var/www/html/repos/ukpypi/nbdev-cards/
