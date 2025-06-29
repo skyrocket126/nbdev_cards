@@ -27,6 +27,7 @@ jobs:
             IdentitiesOnly yes
             HostkeyAlgorithms +ssh-rsa
             PubkeyAcceptedAlgorithms +ssh-rsa
+            StrictHostKeyChecking no
 
           Host repog221
             HostName repog221.ukw.jp
@@ -34,6 +35,9 @@ jobs:
             IdentityFile ~/.ssh/id_ed25519_repog221
             ProxyJump proxy1
             IdentitiesOnly yes
+            HostkeyAlgorithms +ssh-rsa
+            PubkeyAcceptedAlgorithms +ssh-rsa
+            StrictHostKeyChecking no
           EOF
           chmod 600 ~/.ssh/config
 
