@@ -1,0 +1,62 @@
+[
+  {
+    "objectID": "deck.html",
+    "href": "deck.html",
+    "title": "deck",
+    "section": "",
+    "text": "source\n\nDeck\n\n Deck ()\n\nA deck of cards.\n\nsource\n\n\nDeck.pop\n\n Deck.pop (idx:int=-1)\n\nRemove card from deck.\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nidx\nint\n-1\nThe index of the card to remove. Default is the last card\n\n\n\n\nsource\n\n\nDeck.shuffle\n\n Deck.shuffle ()\n\nShuffle the cards in this deck.\n\ndeck = Deck()\ndeck\n\nA♣\\;2♣\\;3♣\\;4♣\\;5♣\\;6♣\\;7♣\\;8♣\\;9♣\\;T♣\\;J♣\\;Q♣\\;K♣\\;A♦\\;2♦\\;3♦\\;4♦\\;5♦\\;6♦\\;7♦\\;8♦\\;9♦\\;T♦\\;J♦\\;Q♦\\;K♦\\;A♥\\;2♥\\;3♥\\;4♥\\;5♥\\;6♥\\;7♥\\;8♥\\;9♥\\;T♥\\;J♥\\;Q♥\\;K♥\\;A♠\\;2♠\\;3♠\\;4♠\\;5♠\\;6♠\\;7♠\\;8♠\\;9♠\\;T♠\\;J♠\\;Q♠\\;K♠\n\n\nデッキの枚数は52枚のはず\n\nlen(deck)\n\n52\n\n\nCard の柄は何があるかを思い出す\n\nsuits\n\n['♣', '♦', '♥', '♠']\n\n\nクラブのエースがデッキにあるかの判定\n\nCard(1, 1) in deck\n\nTrue\n\n\n\ndeck = Deck()\ntest_eq(deck.pop(), Card(3, 13)) # The last card is the King of Spades\n\n51枚のカードがデッキに残っています\n\ntest_eq(len(deck), 51)\n\n\nsource\n\n\nDeck.remove\n\n Deck.remove (card:nbdev_cards.card.Card)\n\nRemoves card from the deck or raises exception if it is not there\n\n\n\n\nType\nDetails\n\n\n\n\ncard\nCard\nCard to remove\n\n\n\n\ncard23 = Card(2, 3)\ndeck.remove(card23)\n\nassert card23 not in deck\n\n\nsource\n\n\ndraw_n\n\n draw_n (n:int, replace:bool=True)\n\nDraw n cards from the deck.\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nn\nint\n\nNumber of cards to draw\n\n\nreplace\nbool\nTrue\nWhether to replace the drawn cards",
+    "crumbs": [
+      "deck"
+    ]
+  },
+  {
+    "objectID": "card.html",
+    "href": "card.html",
+    "title": "card",
+    "section": "",
+    "text": "ranks\n\n[None, 'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K']\n\n\n\nsource\n\nCard\n\n Card (suit:int, rank:int)\n\nA playing card.\n\n\n\n\nType\nDetails\n\n\n\n\nsuit\nint\nAn index into suits\n\n\nrank\nint\nAn index into ranks\n\n\n\n\n\n比較演算子\n等価性, 大小関係\n\nsource\n\nCard.__gt__\n\n Card.__gt__ (other:__main__.Card)\n\nReturn self&gt;value.\n\nsource\n\n\nCard.__lt__\n\n Card.__lt__ (other:__main__.Card)\n\nReturn self&lt;value.\n\nsource\n\n\nCard.__eq__\n\n Card.__eq__ (other:__main__.Card)\n\nReturn self==value.\n例えば　＝ をテストします\n\ntest_eq(Card(suit=1, rank=3), Card(suit=1, rank=3))\n\n&lt; をテストします\n\nassert Card(suit=1, rank=3) &lt; Card(suit=2, rank=3)\n\nFor instance, here’s som tests for equality….\n&gt; をテストします\n\nassert not Card(suit=1, rank=3) &gt; Card(suit=2, rank=3)\nassert Card(suit=3, rank=3) &gt; Card(suit=2, rank=3)",
+    "crumbs": [
+      "card"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "nbdev-cards",
+    "section": "",
+    "text": "この index.ipynb はビルド後に Github の README と ドキュメントの index ページになります.",
+    "crumbs": [
+      "nbdev-cards"
+    ]
+  },
+  {
+    "objectID": "index.html#開発者向けガイドライン",
+    "href": "index.html#開発者向けガイドライン",
+    "title": "nbdev-cards",
+    "section": "開発者向けガイドライン",
+    "text": "開発者向けガイドライン\nnbdev を使い始めるための有用なポイントをいくつか紹介します。\n\nInstall nbdev_cards in Development mode\n# make sure nbdev_cards package is installed in development mode\n$ pip install -e .\n\n# make changes under nbs/ directory\n# ...\n\n# compile to have changes apply to nbdev_cards\n$ nbdev_prepare",
+    "crumbs": [
+      "nbdev-cards"
+    ]
+  },
+  {
+    "objectID": "index.html#usage",
+    "href": "index.html#usage",
+    "title": "nbdev-cards",
+    "section": "Usage",
+    "text": "Usage\n\nInstallation\nInstall latest from the GitHub repository:\n$ pip install git+https://github.com/skyrocket126/nbdev_cards.git\nor from conda\n$ conda install -c skyrocket126 nbdev-cards\nor from pypi\n$ pip install nbdev-cards\n\n\nDocumentation\nドキュメントはこの GitHub のリポジトリのPagesにて公開されています。 さらに、condaおよびpypiには、それぞれパッケージマネージャー別のガイドラインも掲載されています。",
+    "crumbs": [
+      "nbdev-cards"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "nbdev-cards",
+    "section": "How to use",
+    "text": "How to use\nこのライブラリは、トランプのカードを作成・表示・比較するために使用できる Card クラスを提供します。\n\nCard(1, 3)\n\n3♥\n\n\nスート（柄）は以下のリストに従って番号が割り当てられています：\n\nsuits\n\n['♠', '♥', '♦', '♣']",
+    "crumbs": [
+      "nbdev-cards"
+    ]
+  }
+]
