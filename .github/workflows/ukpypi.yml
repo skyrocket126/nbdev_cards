@@ -41,7 +41,7 @@ jobs:
           cat <<EOF > ~/.ssh/config
           Host proxy1
             HostName proxy1.ukw.jp
-            User your_user_name
+            User kawahara_app
             IdentityFile ~/.ssh/id_rsa_proxy1
             IdentitiesOnly yes
             HostkeyAlgorithms +ssh-rsa
@@ -50,7 +50,7 @@ jobs:
 
           Host repog221
             HostName repog221.ukw.jp
-            User universal
+            User github-deploy
             IdentityFile ~/.ssh/id_ed25519_repog221
             ProxyJump proxy1
             IdentitiesOnly yes
