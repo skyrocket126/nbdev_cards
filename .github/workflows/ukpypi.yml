@@ -24,6 +24,10 @@ jobs:
       - name: Prepare version
         run: |
           nbdev_prepare
+      
+      - name: Install nbdev-cards
+        run: |
+          pip install -e .
 
       - name: Build package
         run: |
